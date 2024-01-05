@@ -1,10 +1,222 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<nav class="navbar sticky-top navbar-expand-lg" aria-label="Eighth navbar example">
+    <div class="container">
+        <a class="navbar-brand" id="NavBrand" href="#">X Hotel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-black" aria-current="page" href="#Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="#BookingSection">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="#AboutUs">About Us </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="#ContactUs">Contact Us</a>
+                </li>
+            </ul>
+            <div>
+                <a href="#" class="btn" id="sign-in-btn">Sign In</a>
+                <a href="dashboard-user.html"><img src="./Media/user.png" style="height: 40px"></a>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="container" id="Home">
+    <div class="row" id="section1">
+        <div class="col-5 d-flex flex-column justify-content-center">
+            <h1 id="headerMainSec1">Book your favourite room!</h1>
+            <h2 id="headerSubSec1" class="pe-5 mt-5">
+                hey there write any two long sentences that would look like this to fill the white space.
+            </h2>
+            <div class="my-5"></div>
+        </div>
+        <div class="col" id="section1img">
+            <img src="./Media/section1sea.png">
+        </div>
+    </div>
+    <div id="floatingBoxSec1" class="row">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <p>Date</p>
+            <form>
+                <div class="d-flex">
+                    <div>
+                        <input type="text" placeholder="Check in" onfocus="(this.type='date')" class="dateSec1" id="CheckInDateT">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Check out" onfocus="(this.type='date')" class="dateSec1" id="CheckOutDateT">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col d-flex flex-column justify-content-center align-items-center ps-3 my-2" style="border-left: 1px solid grey;">
+            <p>Guest</p>
+            <form>
+                <div class="d-flex justify-content-center align-items-center">
+                    <input type="number" class="dateSec1" style="width:50px;" value=2 id="NumOfGuestsT">
+                    <span class="mx-1">Adults</span>
+                </div>
+            </form>
+        </div>
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <a href="#" class="btn" id="SearchBtnSec1">Search</a>
+        </div>
+    </div>
+</section>
+<section id="BookingSection" class="container py-5">
+    <div class="row my-5 py-5">
+        <div class="col-3">
+            <div class="row" style="height: 100%;">
+                <p id="BookingHeaderSec2">BOOKING</p>
+                <div id="filterBoxSec2">
+                    <h1>Filter by:</h1>
+                    <div class="d-flex flex-column align-items-center">
+                        <form style="width:85%" method="post">
+                            <button class="d-none" type="button" id="submissionButton"></button>
+                            <label>Price</label>
+                            <p class="text-center text-light" id="rangeViewer">0 EGP - 3000 EGP</p>
+                            <div class="w-100" id="sliderMulti">
+                                <input type="range" class="w-100" dir="rtl" min=0 max=3000 value=3000>
+                                <input type="range" class="w-100" min=0 max=3000 value=3000>
+                                <input type="hidden" name="minPrice" id="minPrice" value=0 />
+                                <input type="hidden" name="maxPrice" id="maxPrice" value=3000 />
+                            </div>
+                            <label>Number of guests</label>
+                            <div class="btn-group d-flex justify-content-center w-50 m-auto my-2" role="group" id="guestNumbersC">
+                                <button type="button" class="btn" id="decreaseGuestBtn">-</button>
+                                <input type="text" readonly value=2 class="text-center" id="guestNLabel">
+                                <button type="button" class="btn" id="increaseGuestBtn">+</button>
+                            </div>
+                            <label>Room type</label>
+                            <div class="d-flex flex-column">
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="RoomCheckFilter">
+                                    <span class="text-light mx-1">Room</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="FSuiteCheckFilter">
+                                    <span class="text-light mx-1">Family Suite</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="VSuiteCheckFilter">
+                                    <span class="text-light mx-1">VIP Suite</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="HtlAprtmntCheckFilter">
+                                    <span class="text-light mx-1">Hotel Apartment</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="VilaCheckFilter">
+                                    <span class="text-light mx-1">Vila</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <form class="row mx-3 mt-5 mb-3" id="SearchBarSec2">
+                    <div class="col d-flex flex-column justify-content-center align-items-center">
+                        <p>Date</p>
+                        <div class="d-flex">
+                            <div>
+                                <input type="text" placeholder="Check in" onfocus="(this.type='date')" class="dateSec2" id="CheckInDate">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Check out" onfocus="(this.type='date')" class="dateSec2" id="CheckOutDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex flex-column justify-content-center align-items-center">
+                        <button type="submit" class="btn" id="SearchBtnSec2">Search</button>
+                    </div>
+            </form>
+            <div class="row">
+                <div class="col-2 ms-auto">
+                    <select name="Sorting" id="Sorting" class="btn btn-light">
+                        <option value=0 selected>Lowest Price</option>
+                        <option value=1>Highest Price</option>
+                    </select>
+                </div>
+            </div>
+            <div class="resBoxSec2 row mx-1 my-4">
+                <div class="col-2 d-flex flex-column justify-content-center">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-4">
+                            <img src="./Media/person.webp">
+                        </div>
+                        <div class="col-4">
+                            <img src="./Media/person.webp">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <span class="text-center">2 Guests</span>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <span class="text-center m-auto">Double Room with Balcony</span>
+                </div>
+                <div class="col-2 d-flex align-items-center">
+                    <a href="#" class="btn detBtn">Room details</a>
+                </div>
+                <div class="col-2 d-flex flex-column justify-content-center">
+                    <div class="row">
+                        <span class="text-center boldPrice">120 EGP</span>
+                    </div>
+                    <div class="row mt-2">
+                        <span class="text-center">35 EGP per night</span>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <a href="#" class="btn bookBtn">BOOK NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container" id="AboutUs">
+    <div class="row my-5 py-5" id="section3">
+        <div class="col-5 d-flex flex-column justify-content-center">
+            <h1 id="headerMainSec3">About Us</h1>
+            <h2 id="headerSubSec3" class="pe-5 mt-5">
+                Welcome to Azure Breeze Resort, a haven of luxury nestled in the heart of the Maldives. At Azure Breeze, we pride ourselves on offering a diverse selection of top-class rooms that cater to every guest's desires, from cozy retreats to extravagant suites. Our commitment to providing an unparalleled experience extends beyond our luxurious accommodations. With our seamless online booking system, we empower our guests to effortlessly reserve their dream getaway and manage reservations at their convenience. Immerse yourself in the serene beauty of the Maldives at Azure Breeze Resort, where excellence meets tranquility. Your escape to paradise begins with us.
+            </h2>
+            <div class="my-5"></div>
+        </div>
+        <div class="col" id="section3img">
+            <img src="./Media/section3sea.png">
+        </div>
+    </div>
+</section>
+<footer id="ContactUs">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col">
+                <div class="row">
+                    <p id="footerHeader">Contact us</p>
+                </div>
+                <div class="row">
+                    <p class="text-light"><span class="boldPrice me-5">Email</span> <a href="mailto:s-yousef.said@zewailcity.edu.eg" class="contactDet">s-yousef.said@zewailcity.edu.eg</a></p>
+                    <p class="text-light"><span class="boldPrice me-4">Address</span> 123 Ocean View Street, Malé, Maldives</p>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-end align-items-center">
+                <div class="row">
+                    <p id="footerLogo">X Hotel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

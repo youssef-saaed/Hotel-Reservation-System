@@ -1,22 +1,473 @@
-html {
-  font-size: 14px;
+:root {
+    --blue-sat: #54D7EA;
+    --blue-sat-opac: #54d6eade;
+    --blue-mid-sat: #94DAE2;
+    --blue-norm: #A9DBDF;
+    --blue-norm-opac: #a9dcdfc1;
+    --blue-light: #BED9DA;
+    --dark-blue: #2E99CC;
+    --dark-blue-opac: #2e9acc84;
+    --dark-unstat-blue: #83BFD4;
+    --darker-blue: #004AAD;
+    --oil-green: #526909;
+    --oil-green-unsat-opac: #555931c9;
+    --light-oil-green: #93AA7F;
+    --light-oil-green-opac: #93aa7fcc;
+    --text-light: #1E392C;
+    --text-dark: #000000;
+    --light: #FFFFFF;
+    --red: #de2424;
+    --yellow: #FFFF00;
+    --green: #16A637;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../Poppins/Poppins-Bold.otf");
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+@font-face {
+    font-family: "Poppins";
+    src: url("../Poppins/Poppins-Regular.otf");
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+* {
+    font-family: "Poppins" !important;
+}
+
+nav {
+    background-color: var(--blue-norm) !important;
+    color: var(--text-dark) !important;
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: var(--blue-light) !important;
+}
+
+#NavBrand {
+    color: var(--text-light);
+    font-family: "Poppins-Bold" !important;
+}
+
+#sign-in-btn {
+    border: var(--text-dark) 1px solid;
+    border-radius: 0;
+    padding: 10px 30px;
+    margin-right: 10px;
+}
+
+    #sign-in-btn:hover {
+        background-color: var(--text-dark);
+        color: var(--light);
+        transition: 1s;
+    }
+
+#section1 {
+    height: 40vw;
+    min-height: 350px;
+}
+
+#section1img {
+    overflow: hidden;
+}
+
+    #section1img img {
+        height: 100%;
+    }
+
+#headerMainSec1 {
+    font-family: "Poppins-Bold" !important;
+    font-size: 4em;
+    color: var(--oil-green);
+}
+
+#headerSubSec1 {
+    font-size: 1.2em;
+    color: var(--text-dark);
+}
+
+#floatingBoxSec1 {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 40vw;
+    height: 100px;
+    background-color: var(--blue-sat);
+    z-index: 2;
+    transform: translate(0, -200%);
+    padding-bottom: 2px;
+    box-shadow: -1px 41px 33px -1px rgba(0,0,0,0.39);
+}
+
+.dateSec1 {
+    width: 95%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    background-color: var(--blue-sat);
+}
+
+#SearchBtnSec1 {
+    background-color: var(--dark-blue);
+    border-radius: 0;
+    padding: 20px 60px;
+}
+
+#BookingHeaderSec2 {
+    font-family: "Poppins-Bold" !important;
+    font-size: 3.5em;
+    color: var(--oil-green);
+}
+
+#filterBoxSec2 {
+    background-color: var(--light-oil-green);
+    padding: 20px;
+    height: 100%;
+}
+
+    #filterBoxSec2 h1 {
+        font-size: 1.5em;
+        font-family: "Poppins-Bold" !important;
+    }
+
+    #filterBoxSec2 label {
+        color: var(--text-light);
+        font-size: 1em;
+    }
+
+#guestNumbersC button {
+    background-color: var(--light);
+    color: var(--darker-blue);
+    font-family: "Poppins-Bold" !important;
+    font-size: 1.5em;
+}
+
+#guestNumbersC input {
+    width: 30px;
+    border: none;
+}
+
+#SearchBarSec2 {
+    background-color: var(--light);
+    border-radius: 30px;
+}
+
+.dateSec2 {
+    width: 95%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    background-color: var(--light);
+    text-align: center;
+}
+
+#SearchBtnSec2 {
+    background-color: var(--light-oil-green);
+    border-radius: 20px;
+    padding: 10px 40px;
+    color: var(--light);
+}
+
+.resBoxSec2 {
+    background-color: var(--blue-mid-sat);
+    height: 150px;
+}
+
+    .resBoxSec2 img {
+        width: 100%;
+    }
+
+    .resBoxSec2 .detBtn {
+        background-color: var(--light-oil-green);
+        color: var(--light);
+        border-radius: 0;
+    }
+
+.boldPrice, .bold {
+    font-family: "Poppins-Bold" !important;
+}
+
+.resBoxSec2 .bookBtn {
+    background-color: var(--dark-blue);
+    border-radius: 0;
+    padding: 20px 40px;
+}
+
+#section3 {
+    height: 30vw;
+    min-height: 350px;
+}
+
+#section3img {
+    overflow: hidden;
+}
+
+    #section3img img {
+        height: 100%;
+    }
+
+#headerMainSec3 {
+    font-family: "Poppins-Bold" !important;
+    font-size: 6em;
+    color: var(--oil-green);
+}
+
+#headerSubSec3 {
+    font-size: 1.2em;
+    color: var(--text-dark);
+}
+
+#ContactUs {
+    background-color: var(--oil-green);
+    margin-top: 50vh;
+}
+
+#footerHeader {
+    font-family: "Poppins-Bold" !important;
+    font-size: 5em;
+    color: var(--blue-light);
+}
+
+.contactDet {
+    color: var(--light);
+    text-decoration: none !important;
+}
+
+#footerLogo {
+    font-family: "Poppins-Bold" !important;
+    font-size: 5.5em;
+    color: var(--blue-sat);
+    text-align: right;
+}
+
+#BookingSection {
+    margin-top: 30vh;
+}
+
+aside {
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--light-oil-green);
+}
+
+#userDashName {
+    font-family: "Poppins-Bold" !important;
+    color: var(--light);
+}
+
+.text-light-green {
+    color: var(--text-light);
+}
+
+.red-btn {
+    background-color: var(--red);
+    color: var(--light);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.blue-btn {
+    background-color: var(--darker-blue);
+    color: var(--light);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.resBoxUserDash {
+    background-color: var(--dark-unstat-blue);
+    height: 150px;
+}
+
+    .resBoxUserDash img {
+        width: 100%;
+    }
+
+    .resBoxUserDash .detBtn {
+        background-color: var(--light-oil-green);
+        color: var(--light);
+        border-radius: 0;
+    }
+
+    .resBoxUserDash .bookBtn {
+        background-color: var(--dark-blue);
+        border-radius: 0;
+        padding: 20px 40px;
+    }
+
+.bigText {
+    font-size: 3em;
+}
+
+.label {
+    border-radius: 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.redL {
+    background-color: var(--red);
+    color: var(--light);
+}
+
+.greenL {
+    background-color: var(--green);
+    color: var(--light);
+}
+
+.yellowL {
+    background-color: var(--yellow);
+    color: var(--text-dark);
+}
+
+.light-blue-btn {
+    background-color: var(--dark-blue);
+    color: var(--light);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+#frontdesk-page {
+    background-image: url("./Media/frontdesk-sea.webp");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.overlay-blue {
+    background-color: var(--blue-norm-opac);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -5;
+}
+
+#frontdesk-page aside {
+    background: none;
+}
+
+#fdeskHeader {
+    background-color: var(--light-oil-green-opac);
+}
+
+    #fdeskHeader h1 {
+        font-size: 5em;
+        line-height: 0.9em;
+        letter-spacing: 0em;
+    }
+
+#roomManagmentBox {
+    width: 80%;
+    height: 100%;
+    background-color: var(--light-oil-green-opac);
+}
+
+#pageContentFdesk {
+    width: 80vw;
+}
+
+#frontdesk-page nav {
+    width: 80vw;
+    height: 100px;
+    position: fixed;
+    left: 20vw;
+    background-color: var(--blue-sat-opac) !important;
+}
+
+    #frontdesk-page nav ul {
+        list-style: none;
+    }
+
+        #frontdesk-page nav ul a {
+            color: var(--text-light) !important;
+            text-decoration: none !important;
+            font-size: 1.2em;
+        }
+
+            #frontdesk-page nav ul a:hover {
+                color: var(--text-dark) !important;
+            }
+
+#filterBoxFdesk {
+    background-color: var(--dark-blue-opac );
+    padding: 20px;
+    height: 100%;
+}
+
+    #filterBoxFdesk h1 {
+        font-size: 1.5em;
+        font-family: "Poppins-Bold" !important;
+    }
+
+    #filterBoxFdesk label {
+        color: var(--text-light);
+        font-size: 1em;
+    }
+
+.resBoxFdeskDash {
+    background-color: var(--oil-green-unsat-opac);
+    height: 150px;
+}
+
+    .resBoxFdeskDash img {
+        width: 100%;
+        filter: invert(1);
+    }
+
+    .resBoxFdeskDash .detBtn {
+        background-color: var(--light-oil-green);
+        color: var(--light);
+        border-radius: 0;
+    }
+
+    .resBoxFdeskDash .bookBtn {
+        background-color: var(--dark-blue);
+        border-radius: 0;
+        padding: 20px 40px;
+    }
+
+.green-btn {
+    background-color: var(--green);
+    color: var(--light);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.yellow-btn {
+    background-color: var(--yellow);
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.resBoxHKDash {
+    background-color: var(--oil-green-unsat-opac);
+    height: 150px;
+}
+
+    .resBoxHKDash img {
+        width: 100%;
+        filter: invert(1);
+    }
+
+    .resBoxHKDash .detBtn {
+        background-color: var(--light-oil-green);
+        color: var(--light);
+        border-radius: 0;
+    }
+
+.resBoxFdeskDash .bookBtn {
+    background-color: var(--dark-blue);
+    border-radius: 0;
+    padding: 20px 40px;
 }

@@ -1,3 +1,5 @@
+using Hotel_Reservation_System.Models;
+
 namespace Hotel_Reservation_System
 {
     public class Program
@@ -8,6 +10,7 @@ namespace Hotel_Reservation_System
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddSingleton<DB>();
 
             var app = builder.Build();
 
