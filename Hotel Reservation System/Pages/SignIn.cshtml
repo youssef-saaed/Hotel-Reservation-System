@@ -1,0 +1,30 @@
+﻿@page
+@model Hotel_Reservation_System.Pages.SignInModel
+@{
+    ViewData["Title"] = "Sign In";
+}
+<div class="vw-100 vh-100 d-flex justify-content-center align-items-center">
+    <div class="bg-light p-5" style="min-width:30vw">
+        <div class="row">
+            <h1 class="bold text-center">Sign In</h1>
+        </div>
+        @if (Model.error)
+        {
+            <div class="alert alert-danger mt-3">The username or password are invalid!</div>
+        }
+        <div class="row">
+            <form method="post"> 
+                <div class="form-floating my-3">
+                    @Html.TextAreaFor(m => m.username, new{@class="form-control", placeholder="Username", @id="UserI", @runat="server"})
+                    <label for="UserI">Username</label>
+                </div>
+                <div class="form-floating my-3">
+                    @Html.PasswordFor(m => m.password, new { @class = "form-control", placeholder = "Password", @id = "PassI", @runat="server"})
+                    <label for="PassI">Password</label>
+                </div>
+                <button class="dark-blue-btn w-100" type="submit">Sign In</button>
+                <div class="row mt-4"><a href="/SignUp">Create a new account?</a></div>
+            </form>
+        </div>
+    </div>
+</div>

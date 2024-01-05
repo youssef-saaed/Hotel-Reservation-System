@@ -442,6 +442,15 @@ aside {
     border-radius: 15px;
 }
 
+.dark-blue-btn {
+    background-color: var(--dark-blue);
+    color: var(--light);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border:none;
+}
+
 .yellow-btn {
     background-color: var(--yellow);
     color: var(--text-dark);

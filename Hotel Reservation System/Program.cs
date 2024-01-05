@@ -13,6 +13,15 @@ namespace Hotel_Reservation_System
             builder.Services.AddRazorPages();
             builder.Services.AddSingleton<DB>();
 
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(60 * 5);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -31,6 +40,8 @@ namespace Hotel_Reservation_System
             app.MapControllers();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.MapRazorPages();
 

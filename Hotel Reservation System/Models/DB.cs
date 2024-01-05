@@ -87,5 +87,48 @@ namespace Hotel_Reservation_System.Models
             conn.Close();
             return cost;
         }
+
+        public User? GetUser(string username, string password)
+        {
+            string query = $"SELECT * FROM Users WHERE UserName = '{username}' AND Pass_Word = '{password}'";
+            User user = new User();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            dt.Load(cmd.ExecuteReader());
+            if (dt.Rows.Count == 0)
+            {
+                conn.Close();
+                return null;
+            }
+            user.Username = (string)dt.Rows[0]["UserName"];
+            if (dt.Rows[0]["Contact_Email"] != System.DBNull.Value)
+            {
+                user.Email = (string)dt.Rows[0]["Contact_Email"];
+            }
+            user.FName = (string)dt.Rows[0]["First_Name"];
+            user.LName = (string)dt.Rows[0]["Last_Name"];
+            user.NID = (long)dt.Rows[0]["National_Id"];
+            if (dt.Rows[0]["Gender"] == "Male")
+            {
+                user.Gender = 1;
+            }
+            else
+            {
+                user.Gender = 2;
+            }
+            if (dt.Rows[0]["User_Type"] == "Employee")
+            {
+                user.UserType = 1;
+            }
+            else
+            {
+                user.UserType = 2;
+            }
+            user.NumberOfRedflags = Convert.ToByte(dt.Rows[0]["Num_Of_RedFlags"]);
+            user.Phone = Convert.ToInt64(dt.Rows[0]["Phone"]);
+            conn.Close();
+            return user;
+        }
     }
 }

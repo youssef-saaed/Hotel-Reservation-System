@@ -27,8 +27,16 @@
                 </li>
             </ul>
             <div>
-                <a href="#" class="btn" id="sign-in-btn">Sign In</a>
-                <a href="dashboard-user.html"><img src="./Media/user.png" style="height: 40px"></a>
+                @{
+                    if (string.IsNullOrEmpty(HttpContext.Session.GetString("username")))
+                    {
+                        <a href="/SignIn" class="btn" id="sign-in-btn">Sign In</a>
+                    }
+                    else
+                    {
+                        <a href="dashboard-user.html"><img src="./Media/user.png" style="height: 40px"></a>
+                    }
+                }
             </div>
         </div>
     </div>
