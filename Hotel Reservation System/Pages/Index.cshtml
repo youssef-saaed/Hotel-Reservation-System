@@ -82,15 +82,14 @@
                 <div id="filterBoxSec2">
                     <h1>Filter by:</h1>
                     <div class="d-flex flex-column align-items-center">
-                        <form style="width:85%" method="post">
-                            <button class="d-none" type="button" id="submissionButton"></button>
+                        <form style="width:85%">
                             <label>Price</label>
-                            <p class="text-center text-light" id="rangeViewer">0 EGP - 3000 EGP</p>
+                            <p class="text-center text-light" id="rangeViewer">@Model.cost.min EGP - @Model.cost.max EGP</p>
                             <div class="w-100" id="sliderMulti">
-                                <input type="range" class="w-100" dir="rtl" min=0 max=3000 value=3000>
-                                <input type="range" class="w-100" min=0 max=3000 value=3000>
-                                <input type="hidden" name="minPrice" id="minPrice" value=0 />
-                                <input type="hidden" name="maxPrice" id="maxPrice" value=3000 />
+                                <input type="range" class="w-100" dir="rtl" min=@Model.cost.min max=@Model.cost.max value=@Model.cost.max>
+                                <input type="range" class="w-100" min=@Model.cost.min max=@Model.cost.max value=@Model.cost.max>
+                                <input type="hidden" name="minPrice" id="minPrice" value=@Model.cost.min />
+                                <input type="hidden" name="maxPrice" id="maxPrice" value=@Model.cost.max />
                             </div>
                             <label>Number of guests</label>
                             <div class="btn-group d-flex justify-content-center w-50 m-auto my-2" role="group" id="guestNumbersC">
@@ -128,20 +127,20 @@
         </div>
         <div class="col">
             <form class="row mx-3 mt-5 mb-3" id="SearchBarSec2">
-                    <div class="col d-flex flex-column justify-content-center align-items-center">
-                        <p>Date</p>
-                        <div class="d-flex">
-                            <div>
-                                <input type="text" placeholder="Check in" onfocus="(this.type='date')" class="dateSec2" id="CheckInDate">
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Check out" onfocus="(this.type='date')" class="dateSec2" id="CheckOutDate">
-                            </div>
+                <div class="col d-flex flex-column justify-content-center align-items-center">
+                    <p>Date</p>
+                    <div class="d-flex">
+                        <div>
+                            <input type="text" placeholder="Check in" onfocus="(this.type='date')" class="dateSec2" id="CheckInDate">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Check out" onfocus="(this.type='date')" class="dateSec2" id="CheckOutDate">
                         </div>
                     </div>
-                    <div class="col-3 d-flex flex-column justify-content-center align-items-center">
-                        <button type="submit" class="btn" id="SearchBtnSec2">Search</button>
-                    </div>
+                </div>
+                <div class="col-3 d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" class="btn" id="SearchBtnSec2">Search</button>
+                </div>
             </form>
             <div class="row">
                 <div class="col-2 ms-auto">
@@ -151,36 +150,9 @@
                     </select>
                 </div>
             </div>
-            <div class="resBoxSec2 row mx-1 my-4">
-                <div class="col-2 d-flex flex-column justify-content-center">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-4">
-                            <img src="./Media/person.webp">
-                        </div>
-                        <div class="col-4">
-                            <img src="./Media/person.webp">
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <span class="text-center">2 Guests</span>
-                    </div>
-                </div>
-                <div class="col d-flex align-items-center">
-                    <span class="text-center m-auto">Double Room with Balcony</span>
-                </div>
-                <div class="col-2 d-flex align-items-center">
-                    <a href="#" class="btn detBtn">Room details</a>
-                </div>
-                <div class="col-2 d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <span class="text-center boldPrice">120 EGP</span>
-                    </div>
-                    <div class="row mt-2">
-                        <span class="text-center">35 EGP per night</span>
-                    </div>
-                </div>
-                <div class="col d-flex align-items-center">
-                    <a href="#" class="btn bookBtn">BOOK NOW</a>
+            <div id="roomsContainer">
+                <div class='row'>
+                    <p class='text-center'>Nothing to show :(</p>
                 </div>
             </div>
         </div>

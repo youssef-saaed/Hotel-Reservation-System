@@ -1,4 +1,5 @@
 using Hotel_Reservation_System.Models;
+using System.Text.Json.Nodes;
 
 namespace Hotel_Reservation_System
 {
@@ -26,6 +27,8 @@ namespace Hotel_Reservation_System
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.MapControllers();
 
             app.UseAuthorization();
 
