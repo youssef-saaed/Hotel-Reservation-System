@@ -1,0 +1,22 @@
+﻿@page
+@model Hotel_Reservation_System.Pages.BookModel
+@{
+    ViewData["Title"] = "Booking";
+}
+
+<div class="vw-100 vh-100 d-flex justify-content-center align-items-center">
+    <div class="bg-light p-5" style="min-width:30vw">
+        <div class="row">
+            <h1 class="bold text-center">Booking</h1>
+        </div>
+        <div class="row">
+            <form method="post">
+                <div class="form-floating my-3">
+                    @Html.TextAreaFor(m => m.reservation.Prefrences, new { @class = "form-control", placeholder = "Prefrences", @id = "PrefI", @runat = "server" })
+                    <label for="PrefI">Prefrences</label>
+                </div>
+                <button class="dark-blue-btn w-100" type="submit">Book</button>
+            </form>
+        </div>
+    </div>
+</div>

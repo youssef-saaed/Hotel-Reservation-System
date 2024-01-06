@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="col d-flex align-items-center">
-                        <a href="#" class="btn bookBtn">BOOK NOW</a>
+                        <a href="/Book/${json[i]["roomNum"]}/${json[i]["floorNum"]}/${CheckInDate}/${CheckOutDate}/${json[i]["cost"]}" class="btn bookBtn">BOOK NOW</a>
                     </div>
                 </div>
         `;

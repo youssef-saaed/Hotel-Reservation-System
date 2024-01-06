@@ -1,6 +1,7 @@
 ﻿using Hotel_Reservation_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Primitives;
 
 namespace Hotel_Reservation_System.Pages
 {

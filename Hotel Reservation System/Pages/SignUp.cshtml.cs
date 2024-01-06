@@ -50,6 +50,7 @@ namespace Hotel_Reservation_System.Pages
             {
                 msg = "";
                 HttpContext.Session.SetString("username", user.Username);
+                HttpContext.Session.SetInt32("user_type", user.UserType);
                 return RedirectToPage("/Index");
             }
         }

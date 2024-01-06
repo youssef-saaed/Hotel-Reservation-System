@@ -24,5 +24,10 @@ namespace Hotel_Reservation_System
             }
             return new JsonResult(fetched);
         }
+        [Route("/Book/{RoomNumber}/{FloorNumber}/{DateIn}/{DateOut}/{Cost}")]
+        public IActionResult BookingPage(int RoomNumber, int FloorNumber, string DateIn, string DateOut, decimal Cost)
+        {
+            return RedirectToPage("/Book", new { RoomNum = RoomNumber, FloorNum = FloorNumber, DateIn = DateIn, DateOut = DateOut, Cost = Cost});
+        }
     }
 }

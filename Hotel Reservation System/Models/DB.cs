@@ -171,5 +171,16 @@ namespace Hotel_Reservation_System.Models
             conn.Close();
             return SignUpState.SUCCESS;
         }
+        public void MakeReservation(Reservation reservation, string username)
+        {
+            string query = $"SELECT Guest.ID FROM Guest JOIN Users ON Users.National_Id = Guest.National_ID WHERE UserName = '{username}'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand (query, conn);
+            reservation.GuestId = Convert.ToInt32(cmd.ExecuteScalar());
+            query = $"INSERT INTO Reservation(Floor_Num, Room_Num, Discount, Fromm, Too, date, Cost, Remaining_Cost, Statee, Prefrences, Guest_Id) VALUES ({reservation.FloorNum}, {reservation.RoomNum}, {reservation.Discount}, '{reservation.FromDate}', '{reservation.ToDate}', GETDATE(), {reservation.Cost}, {reservation.RemainingCost}, 'Pending', '{reservation.Prefrences.Replace("'", "\"")}', {reservation.GuestId})";
+            cmd = new SqlCommand (query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
