@@ -426,6 +426,7 @@ namespace Hotel_Reservation_System.Models
             }
             catch (SqlException ex)
             {
+                Console.WriteLine(ex.Message);
             }
             finally
             {
