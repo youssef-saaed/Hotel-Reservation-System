@@ -182,5 +182,299 @@ namespace Hotel_Reservation_System.Models
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+        // Add Room
+        public void AddRoom(int resID, int floorNum, int roomNum, int state, float cost, int capacity, int type, string description, string properties)
+
+        {
+            string Q1 = "INSERT INTO Room (Reservation_Id, Floor_Num, Room_Num, Statte, Cost, Capacity_Details, Type_Details, Descriptionn, Properties) VALUES (ResID, floorNum, roomNum, state, cost, capcity, type, description, properties); ";
+            SqlCommand cmd = new SqlCommand(Q1, conn);
+
+            cmd.Parameters.AddWithValue("ResID", resID);
+            cmd.Parameters.AddWithValue("floorNum", floorNum);
+            cmd.Parameters.AddWithValue("roomNum", roomNum);
+            cmd.Parameters.AddWithValue("state", state);
+            cmd.Parameters.AddWithValue("cost", cost);
+            cmd.Parameters.AddWithValue("capcity", capacity);
+            cmd.Parameters.AddWithValue("type", type);
+            cmd.Parameters.AddWithValue("description", description);
+            cmd.Parameters.AddWithValue("properties", properties);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Delete Room
+        public void DeleteRoom(int ffloorNum, int rroomNum)
+        {
+            string Q2 = "DELETE FROM Room WHERE Floor_Num = " + ffloorNum + " AND Room_Num = " + rroomNum + "; ";
+            SqlCommand cmd = new SqlCommand(Q2, conn);
+            cmd.Parameters.Add("ffloorNum", SqlDbType.Int).Value = ffloorNum;
+            cmd.Parameters.Add("rroomNum", SqlDbType.Int).Value = rroomNum;
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Requests Information
+        public DataTable RequestInformation()
+        {
+            DataTable dt = new DataTable();
+            string Q3 = "Select Room_Num, State, Request_Description from Reservation as R right join Request as S on S.Reservation_ID= R.ID";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q3, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+        //Assign 
+        public void Assign()
+        {
+            string Q4 = "BEGIN TRANSACTION; DECLARE @HousekeepingID INT; SELECT TOP 1 @HousekeepingID = ID FROM  Housekeeping WHERE Availabilityy = 'True' ORDER BY ID;" +
+                "IF @HousekeepingID IS NOT NULL BEGIN UPDATE TOP(1) Request SET State = 'Started', Housekeeping_ID = @HousekeepingID WHERE State = 'Sent';" +
+                "IF @@ROWCOUNT = 1 BEGIN UPDATE Housekeeping SET Availabilityy = 'False' WHERE ID = @HousekeepingID; END END COMMIT; ";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(Q4, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+        public void markAsClosed()
+        {
+            string Q5 = "BEGIN TRANSACTION; DECLARE @HousekeepingID INT; SELECT TOP 1 @HousekeepingID = ID FROM  Housekeeping WHERE Availabilityy = 'False' ORDER BY ID;" +
+                "IF @HousekeepingID IS NOT NULL BEGIN UPDATE TOP(1) Request SET State = 'Closed' WHERE State = 'Started'and Housekeeping_ID = @HousekeepingID;" +
+                "IF @@ROWCOUNT = 1 BEGIN UPDATE Housekeeping SET Availabilityy = 'True' WHERE ID = @HousekeepingID; END END COMMIT; ";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(Q5, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        /*  public DataTable Filter( bool sent, bool started, bool closed)
+          {
+              DataTable dt = new DataTable();
+              string Q6 = "Select Room_Num, State, Request_Description from Reservation as R right join Request as S on S.Reservation_ID= R.ID ";
+              if (sent || started|| closed)
+              {
+                  Q6 = Q6 + "WHERE State = ";
+                  if (sent)
+                  {
+                      Q6=Q6+" 'Sent' ";
+                  }
+                  else if (started)
+                  {
+                      Q6 = Q6 + "'Started'";
+                  }
+                  else if (closed)
+                  {
+                      Q6 = Q6 + "'Closed'";
+                  }
+              }
+              try
+              {
+                  conn.Open();
+                  using SqlCommand cmd = new SqlCommand(Q6, conn);
+                  dt.Load(cmd.ExecuteReader());
+              }
+              catch (SqlException ex)
+              {
+              }
+              finally
+              {
+                  conn.Close();
+              }
+              return dt;
+          }
+  */
+        public DataTable FilterSent()
+        {
+            DataTable dt = new DataTable();
+            string Q6 = "Select Room_Num, State, Request_Description from Reservation as R right join Request as S on S.Reservation_ID= R.ID Where State='Sent';";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q6, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+        public DataTable FilterStarted()
+        {
+            DataTable dt = new DataTable();
+            string Q7 = "Select Room_Num, State, Request_Description from Reservation as R right join Request as S on S.Reservation_ID= R.ID Where State='Started';";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q7, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public DataTable FilterClosed()
+        {
+            DataTable dt = new DataTable();
+            string Q8 = "Select Room_Num, State, Request_Description from Reservation as R right join Request as S on S.Reservation_ID= R.ID Where State='Closed';";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q8, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public void AddAction(string Action_Description, string Action_Date, int Housekeeping_ID, int FeedbackId)
+        {
+            string Q9 = "INSERT INTO Action (Action_Description, Action_Date, Housekeeping_ID, FeedbackId) VALUES(@Action_Description, @Action_Date, @HouseKeeping_ID, @FeedbackId); ";
+            SqlCommand cmd = new SqlCommand(Q9, conn);
+
+            cmd.Parameters.AddWithValue("@Action_Description", Action_Description);
+            cmd.Parameters.AddWithValue("@Action_Date", Action_Date);
+            cmd.Parameters.AddWithValue("@HouseKeeping_ID", Housekeeping_ID);
+            cmd.Parameters.AddWithValue("@FeedbackId", FeedbackId);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Feedbacks Information
+        public DataTable FeedbackInformation()
+        {
+            DataTable dt = new DataTable();
+            string Q10 = "Select Room_Num, Status, Review from Feedback as F right join Reservation as R on F.Reservation_ID= R.ID";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q10, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public DataTable HK_MarkAsDone()
+        {
+            DataTable dt = new DataTable();
+            string Q11 = "BEGIN TRANSACTION; DECLARE @HousekeepingID INT; update Request set State = 'Closed' where ID " +
+                "= @HousekeepingID IF @@ROWCOUNT = 1 BEGIN UPDATE Housekeeping SET Availabilityy = 'True' WHERE ID = 14; END  COMMIT; ";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q11, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public DataTable RequestInfromationForHKs()
+        {
+            DataTable dt = new DataTable();
+            string Q12 = "DECLARE @HousekeepingID INT; Select Room_Num, Request_Description from Reservation as R right join Request" +
+                " as S on S.Reservation_ID = R.ID Where S.Housekeeping_ID = 14; ";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q12, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
     }
 }

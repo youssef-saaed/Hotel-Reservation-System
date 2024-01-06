@@ -1,0 +1,123 @@
+﻿@page
+@model Hotel_Reservation_System.Pages.HouseKeepingModel
+@{
+}
+<body id="frontdesk-page">
+    <div class="overlay-blue"></div>
+    <aside class="d-flex flex-column">
+        <div class="w-100 p-5 d-flex justify-content-center align-items-center" id="fdeskHeader">
+            <h1 class="text-light bold">House<br>Keeping</h1>
+        </div>
+        <div>
+            <div class="row d-flex justify-content-start mt-3">
+                <div class="col-2 ms-4">
+                    <img src="./Media/user.png" class="img-fluid">
+                </div>
+                <div class="col-5">
+                    <div class="row ms-1" style="font-size: 1.4em;">
+                        John Doe
+                    </div>
+                    <div class="row">
+                        <img src="./Media/redflag.webp" style="width: 39px;">
+                        2 Red flags
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="container-fluid" style="padding: 0;">
+        <div class="d-flex justify-content-end align-items-center">
+            <div id="pageContentFdesk">
+                <nav class="d-flex align-items-center justify-content-end">
+                    <a href="#" class="red-btn mx-5">Sign out</a>
+                </nav>
+                <section class="container pt-1 my-5">
+                    <div class="row pt-5 mt-5">
+                        <div class="row" style="height: 50%;">
+                            <p class="bigText">Requests</p>
+                        </div>
+                        <div class="row">
+                            <div class="row mx-1 my-4 px-3" style="width: 50%;">
+                                <div class="col-2 d-flex flex-column justify-content-center">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-8">
+                                            <img src="./Media/bed.webp">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*Requests*@
+                                @for (int i = 1; i < @Model.dt7.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3">
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt7.Rows[i][0]</span>
+                                        </div>
+                                        <!--View Details Modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">View Details</button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel4">Request Description</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @Model.dt7.Rows[i][1]
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex flex-column justify-content-center align-items-center">
+                                        <button type="button" class="green-btn my-1 w-100 text-center" asp-page-handler="one">Mark as closed</button>
+                                    </div>
+                                    <div class="col-2 d-flex flex-column justify-content-center">
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-8">
+                                                <img src="./Media/bed.webp" alt="Bed">
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="./Bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+@for (int i = 0; i < @Model.dt7.Rows.Count; i++)
+{
+    <div class="resBoxFdeskDash row mx-1 my-4 px-3">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt7.Rows[i][0]</span>
+        </div>
+        <!--View Details Modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            View Details
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Request Description</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        @Model.dt7.Rows[i][1]
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+} 
