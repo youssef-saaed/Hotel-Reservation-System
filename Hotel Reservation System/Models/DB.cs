@@ -1,11 +1,13 @@
 ﻿using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace Hotel_Reservation_System.Models
 {
     public class DB
     {
+        public enum SignUpState { SUCCESS, EMPTY_FIELD_OR_INVALID, USERNAME_OR_NID_EXIST, WEAK_PASSWORD, FAILED, NOT_SIGNED_UP};
         private string connString = "Data Source = YOUSEFs-LAPTOP\\SQLEXPRESS; Initial Catalog = HotelReservationSystemDB; Integrated Security = True";
         private SqlConnection conn = new SqlConnection();
 
@@ -129,6 +131,45 @@ namespace Hotel_Reservation_System.Models
             user.Phone = Convert.ToInt64(dt.Rows[0]["Phone"]);
             conn.Close();
             return user;
+        }
+        public SignUpState SignUp(User user)
+        {
+            if (user.FName == "" || user.LName == "" || user.Username == "" || user.Email == "" || user.Password == "" || !(user.Gender == 1 || user.Gender == 2) || user.Phone < 1000000000 || user.NID < 10000000000000)
+            {
+                return SignUpState.EMPTY_FIELD_OR_INVALID;
+            }
+            Regex reg = new Regex("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
+            if (!reg.IsMatch(user.Password))
+            {
+                return SignUpState.WEAK_PASSWORD;
+            }
+            string query = $"SELECT COUNT(*) FROM Users WHERE UserName = '{user.Username}' OR National_Id = {user.NID} OR Phone = '{user.Phone}'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            if ((int)cmd.ExecuteScalar() > 0)
+            {
+                conn.Close();
+                return SignUpState.USERNAME_OR_NID_EXIST;
+            }
+            string Gender = (user.Gender == 1) ? "Male" : "Female";
+            query = $"INSERT INTO Users(National_Id, First_Name, Last_Name, Contact_Email, Gender, User_Type, Num_Of_RedFlags, Phone, UserName, Pass_Word) Values ({user.NID}, '{user.FName}', '{user.LName}', '{user.Email}', '{Gender}', 'Guest', 0, '{user.Phone}', '{user.Username}', '{user.Password}')";
+            cmd = new SqlCommand(query, conn);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                query = $"INSERT INTO Guest(National_ID) VALUES ({user.NID})";
+                cmd = new SqlCommand(query, conn);
+                while (cmd.ExecuteNonQuery() < 1)
+                {
+                    cmd = new SqlCommand(query, conn);
+                }
+            }
+            else
+            {
+                conn.Close();
+                return SignUpState.FAILED;
+            }
+            conn.Close();
+            return SignUpState.SUCCESS;
         }
     }
 }

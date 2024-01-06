@@ -41,7 +41,11 @@ namespace Hotel_Reservation_System.Pages
             {
                 error = false;
                 HttpContext.Session.SetString("username", username);
-                return RedirectToPage("/Index");
+                HttpContext.Session.SetInt32("user_type", user.UserType);
+                if (user.UserType == 2) {
+                    return RedirectToPage("/Index");
+                }
+                return RedirectToPage();
             }
         }
     }

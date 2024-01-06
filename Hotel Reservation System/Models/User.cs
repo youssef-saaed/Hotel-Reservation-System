@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace Hotel_Reservation_System.Models
 {
@@ -13,6 +14,8 @@ namespace Hotel_Reservation_System.Models
         public byte NumberOfRedflags { get; set; }
         public long Phone {  get; set; }
         public string Username {  get; set; }
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
     }
 }
