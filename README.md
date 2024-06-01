@@ -45,8 +45,7 @@ To set up the project, follow these steps:
 1. Clone the repository to your local machine.
 2. Open the solution file in Visual Studio.
 3. Restore the NuGet packages.
-4. Configure the database connection string in `appsettings.json`.
-5. Build and run the application.
+4. Build and run the application.
 
 ## Database Schema
 The database schema is designed to support the hotel's operations and includes entities like Guests, Reservations, Rooms, Requests, Employees, etc.
