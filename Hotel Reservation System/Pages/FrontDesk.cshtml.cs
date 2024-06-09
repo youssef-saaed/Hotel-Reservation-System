@@ -9,34 +9,34 @@ namespace Hotel_Reservation_System.Pages
     public class FrontDeskModel : PageModel
     {
 
-        private readonly DB db;
-        //for Add Room
+         private readonly DB db;
+        //for Add Room Button
         [BindProperty(SupportsGet = true)]
-        public int resID { get; set; }
+        public int Reservation_Id { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int floorNum { get; set; }
+        public int Floor_Num { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int roomNum { get; set; }
+        public int Room_Num { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int state { get; set; }
+        public int Statte { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public float cost { get; set; }
+        public float Cost { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int capacity { get; set; }
+        public int Capacity_Details { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int type { get; set; }
+        public int Type_Details { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string description { get; set; }
+        public string Descriptionn { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string properties { get; set; }
+        public string Properties { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public int ffloorNum { get; set; }
@@ -55,21 +55,13 @@ namespace Hotel_Reservation_System.Pages
 
         [BindProperty(SupportsGet = true)]
         public int FeedbackId { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public bool sent { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public bool started { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public bool closed { get; set; }
         public DataTable dt1 { get; set; }
         public DataTable dt2 { get; set; }
         public DataTable dt3 { get; set; }
         public DataTable dt4 { get; set; }
         public DataTable dt5 { get; set; }
-
+        public DataTable dt6 { get; set; }
+        public DataTable dt7 { get; set; }
         public FrontDeskModel(DB db)
         {
             this.db = db;
@@ -77,25 +69,25 @@ namespace Hotel_Reservation_System.Pages
         public void OnGet()
         {
             dt1 = db.RequestInformation();
-            dt2 = db.FilterSent();
-            dt3 = db.FilterStarted();
-            dt4 = db.FilterClosed();
-            /*  dt2 = db.Filter(sent, started, closed);*/
-            dt5 = db.FeedbackInformation();
+            dt3 = db.FilterSent();
+            dt4 = db.FilterStarted();
+            dt5 = db.FilterClosed();
+            dt2 = db.FeedbackInformation();
+            dt6 = db.FilterActionTaken();
+            dt7 = db.FilterActionNotTaken();
         }
-
         public IActionResult OnPostOne()
         {
-            db.AddRoom(resID, floorNum, roomNum, state, cost, capacity, type, description, properties);
-            resID = 0;
-            floorNum = 0;
-            roomNum = 0;
-            state = 0;
-            cost = 0;
-            capacity = 0;
-            type = 0;
-            description = "";
-            properties = "";
+            db.AddRoom(Reservation_Id, Floor_Num, Room_Num, Statte, Cost, Capacity_Details, Type_Details, Descriptionn, Properties);
+            Reservation_Id = 0;
+            Floor_Num = 0;
+            Room_Num = 0;
+            Statte = 0;
+            Cost = 0;
+            Capacity_Details = 0;
+            Type_Details = 0;
+            Descriptionn = "";
+            Properties = "";
             return RedirectToPage("/FrontDesk");
         }
         public IActionResult OnPostTwo()
@@ -107,16 +99,6 @@ namespace Hotel_Reservation_System.Pages
         }
         public IActionResult OnPostThree()
         {
-            db.Assign();
-            return RedirectToPage("/FrontDesk");
-        }
-        public IActionResult OnPostFour()
-        {
-            db.markAsClosed();
-            return RedirectToPage("/FrontDesk");
-        }
-        public IActionResult OnPostFive()
-        {
             db.AddAction(Action_Description, Action_Date, Housekeeping_ID, FeedbackId);
             Action_Description = "";
             Action_Date = "";
@@ -124,10 +106,15 @@ namespace Hotel_Reservation_System.Pages
             FeedbackId = 0;
             return RedirectToPage("/FrontDesk");
         }
-        public IActionResult OnPostSix()
+        public void OnPostFour()
+        {
+            db.Assign();
+        }
+        public IActionResult OnPostFive()
         {
             db.markAsClosed();
             return RedirectToPage("/FrontDesk");
         }
+
     }
 }

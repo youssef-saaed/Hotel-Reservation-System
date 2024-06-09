@@ -295,42 +295,47 @@ namespace Hotel_Reservation_System.Models
 
         }
 
-        /*  public DataTable Filter( bool sent, bool started, bool closed)
-          {
-              DataTable dt = new DataTable();
-              string Q6 = "Select Room_Num, State, Request_Description from Reservation as R right join Request as S on S.Reservation_ID= R.ID ";
-              if (sent || started|| closed)
-              {
-                  Q6 = Q6 + "WHERE State = ";
-                  if (sent)
-                  {
-                      Q6=Q6+" 'Sent' ";
-                  }
-                  else if (started)
-                  {
-                      Q6 = Q6 + "'Started'";
-                  }
-                  else if (closed)
-                  {
-                      Q6 = Q6 + "'Closed'";
-                  }
-              }
-              try
-              {
-                  conn.Open();
-                  using SqlCommand cmd = new SqlCommand(Q6, conn);
-                  dt.Load(cmd.ExecuteReader());
-              }
-              catch (SqlException ex)
-              {
-              }
-              finally
-              {
-                  conn.Close();
-              }
-              return dt;
-          }
-  */
+        public DataTable FilterActionTaken()
+        {
+            DataTable dt = new DataTable();
+            string Q10 = "Select Room_Num, Status, Review from Feedback as F right join Reservation as R on F.Reservation_ID= R.ID Where Status='Action Taken';";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q10, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public DataTable FilterActionNotTaken()
+        {
+            DataTable dt = new DataTable();
+            string Q10 = "Select Room_Num, Status, Review from Feedback as F right join Reservation as R on F.Reservation_ID= R.ID Where Status='Action Not Taken'";
+            try
+            {
+                conn.Open();
+                using SqlCommand cmd = new SqlCommand(Q10, conn);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+
         public DataTable FilterSent()
         {
             DataTable dt = new DataTable();

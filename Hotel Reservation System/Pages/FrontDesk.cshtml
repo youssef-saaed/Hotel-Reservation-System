@@ -5,6 +5,481 @@
 }
 
 
+    <style>
+        :root {
+            --blue-sat: #54D7EA;
+            --blue-sat-opac: #54d6eade;
+            --blue-mid-sat: #94DAE2;
+            --blue-norm: #A9DBDF;
+            --blue-norm-opac: #a9dcdfc1;
+            --blue-light: #BED9DA;
+            --dark-blue: #2E99CC;
+            --dark-blue-opac: #2e9acc84;
+            --dark-unstat-blue: #83BFD4;
+            --darker-blue: #004AAD;
+            --oil-green: #526909;
+            --oil-green-unsat-opac: #555931c9;
+            --light-oil-green: #93AA7F;
+            --light-oil-green-opac: #93aa7fcc;
+            --text-light: #1E392C;
+            --text-dark: #000000;
+            --light: #FFFFFF;
+            --red: #de2424;
+            --yellow: #FFFF00;
+            --green: #16A637;
+        }
+
+        .font-face {
+            font-family: "Poppins-Bold";
+            src: url("./Poppins/Poppins-Bold.otf");
+        }
+
+        .font-face {
+            font-family: "Poppins";
+            src: url("./Poppins/Poppins-Regular.otf");
+        }
+
+        * {
+            font-family: "Poppins" !important;
+        }
+
+        nav {
+            background-color: var(--blue-norm) !important;
+            color: var(--text-dark) !important;
+        }
+
+        body {
+            background-color: var(--blue-light) !important;
+        }
+
+        #NavBrand {
+            color: var(--text-light);
+            font-family: "Poppins-Bold" !important;
+        }
+
+        #sign-in-btn {
+            border: var(--text-dark) 1px solid;
+            border-radius: 0;
+            padding: 10px 30px;
+            margin-right: 10px;
+        }
+
+            #sign-in-btn:hover {
+                background-color: var(--text-dark);
+                color: var(--light);
+                transition: 1s;
+            }
+
+        #section1 {
+            height: 40vw;
+            min-height: 350px;
+        }
+
+        #section1img {
+            overflow: hidden;
+        }
+
+            #section1img img {
+                height: 100%;
+            }
+
+        #headerMainSec1 {
+            font-family: "Poppins-Bold" !important;
+            font-size: 4em;
+            color: var(--oil-green);
+        }
+
+        #headerSubSec1 {
+            font-size: 1.2em;
+            color: var(--text-dark);
+        }
+
+        #floatingBoxSec1 {
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            width: 40vw;
+            height: 100px;
+            background-color: var(--blue-sat);
+            z-index: 2;
+            transform: translate(0, -200%);
+            padding-bottom: 2px;
+            box-shadow: -1px 41px 33px -1px rgba(0,0,0,0.39);
+        }
+
+        .dateSec1 {
+            width: 95%;
+            height: 40px;
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            background-color: var(--blue-sat);
+        }
+
+        #SearchBtnSec1 {
+            background-color: var(--dark-blue);
+            border-radius: 0;
+            padding: 20px 60px;
+        }
+
+        #BookingHeaderSec2 {
+            font-family: "Poppins-Bold" !important;
+            font-size: 3.5em;
+            color: var(--oil-green);
+        }
+
+        #filterBoxSec2 {
+            background-color: var(--light-oil-green);
+            padding: 20px;
+            height: 100%;
+        }
+
+            #filterBoxSec2 h1 {
+                font-size: 1.5em;
+                font-family: "Poppins-Bold" !important;
+            }
+
+            #filterBoxSec2 label {
+                color: var(--text-light);
+                font-size: 1em;
+            }
+
+        #guestNumbersC button {
+            background-color: var(--light);
+            color: var(--darker-blue);
+            font-family: "Poppins-Bold" !important;
+            font-size: 1.5em;
+        }
+
+        #guestNumbersC input {
+            width: 30px;
+            border: none;
+        }
+
+        #SearchBarSec2 {
+            background-color: var(--light);
+            border-radius: 30px;
+        }
+
+        .dateSec2 {
+            width: 95%;
+            height: 40px;
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        #SearchBtnSec2 {
+            background-color: var(--light-oil-green);
+            border-radius: 20px;
+            padding: 10px 40px;
+            color: var(--light);
+        }
+
+        .resBoxSec2 {
+            background-color: var(--blue-mid-sat);
+            height: 150px;
+        }
+
+            .resBoxSec2 img {
+                width: 100%;
+            }
+
+            .resBoxSec2 .detBtn {
+                background-color: var(--light-oil-green);
+                color: var(--light);
+                border-radius: 0;
+            }
+
+        .boldPrice, .bold {
+            font-family: "Poppins-Bold" !important;
+        }
+
+        .resBoxSec2 .bookBtn {
+            background-color: var(--dark-blue);
+            border-radius: 0;
+            padding: 20px 40px;
+        }
+
+        #section3 {
+            height: 30vw;
+            min-height: 350px;
+        }
+
+        #section3img {
+            overflow: hidden;
+        }
+
+            #section3img img {
+                height: 100%;
+            }
+
+        #headerMainSec3 {
+            font-family: "Poppins-Bold" !important;
+            font-size: 6em;
+            color: var(--oil-green);
+        }
+
+        #headerSubSec3 {
+            font-size: 1.2em;
+            color: var(--text-dark);
+        }
+
+        #ContactUs {
+            background-color: var(--oil-green);
+            margin-top: 50vh;
+        }
+
+        #footerHeader {
+            font-family: "Poppins-Bold" !important;
+            font-size: 5em;
+            color: var(--blue-light);
+        }
+
+        .contactDet {
+            color: var(--light);
+            text-decoration: none !important;
+        }
+
+        #footerLogo {
+            font-family: "Poppins-Bold" !important;
+            font-size: 5.5em;
+            color: var(--blue-sat);
+            text-align: right;
+        }
+
+        #BookingSection {
+            margin-top: 30vh;
+        }
+
+        aside {
+            width: 20vw;
+            height: 100vh;
+            position: fixed;
+            background-color: var(--light-oil-green);
+        }
+
+        #userDashName {
+            font-family: "Poppins-Bold" !important;
+            color: var(--light);
+        }
+
+        .text-light-green {
+            color: var(--text-light);
+        }
+
+        .red-btn {
+            background-color: var(--red);
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .blue-btn {
+            background-color: var(--darker-blue);
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .resBoxUserDash {
+            background-color: var(--dark-unstat-blue);
+            height: 150px;
+        }
+
+            .resBoxUserDash img {
+                width: 100%;
+            }
+
+            .resBoxUserDash .detBtn {
+                background-color: var(--light-oil-green);
+                color: var(--light);
+                border-radius: 0;
+            }
+
+            .resBoxUserDash .bookBtn {
+                background-color: var(--dark-blue);
+                border-radius: 0;
+                padding: 20px 40px;
+            }
+
+        .bigText {
+            font-size: 3em;
+        }
+
+        .label {
+            border-radius: 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .redL {
+            background-color: var(--red);
+            color: var(--light);
+        }
+
+        .greenL {
+            background-color: var(--green);
+            color: var(--light);
+        }
+
+        .yellowL {
+            background-color: var(--yellow);
+            color: var(--text-dark);
+        }
+
+        .light-blue-btn {
+            background-color: var(--dark-blue);
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        #frontdesk-page {
+            background-image: url("./Media/frontdesk-sea.webp");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        .overlay-blue {
+            background-color: var(--blue-norm-opac);
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            z-index: -5;
+        }
+
+        #frontdesk-page aside {
+            background: none;
+        }
+
+        #fdeskHeader {
+            background-color: var(--light-oil-green-opac);
+        }
+
+            #fdeskHeader h1 {
+                font-size: 5em;
+                line-height: 0.9em;
+                letter-spacing: 0em;
+            }
+
+        #roomManagmentBox {
+            width: 80%;
+            height: 100%;
+            background-color: var(--light-oil-green-opac);
+        }
+
+        #pageContentFdesk {
+            width: 40vw;
+        }
+
+        #frontdesk-page nav {
+            width: 80vw;
+            height: 100px;
+            position: fixed;
+            left: 20vw;
+            background-color: var(--blue-sat-opac) !important;
+        }
+
+            #frontdesk-page nav ul {
+                list-style: none;
+            }
+
+                #frontdesk-page nav ul a {
+                    color: var(--text-light) !important;
+                    text-decoration: none !important;
+                    font-size: 1.2em;
+                }
+
+                    #frontdesk-page nav ul a:hover {
+                        color: var(--text-dark) !important;
+                    }
+
+        #filterBoxFdesk {
+            background-color: var(--dark-blue-opac );
+            padding: 20px;
+            height: 100%;
+        }
+
+            #filterBoxFdesk h1 {
+                font-size: 1.5em;
+                font-family: "Poppins-Bold" !important;
+            }
+
+            #filterBoxFdesk label {
+                color: var(--text-light);
+                font-size: 1em;
+            }
+
+        .resBoxFdeskDash {
+            background-color: var(--oil-green-unsat-opac);
+            height: 170px;
+        }
+
+            .resBoxFdeskDash img {
+                width: 100%;
+                filter: invert(1);
+            }
+
+            .resBoxFdeskDash .detBtn {
+                background-color: var(--light-oil-green);
+                color: var(--light);
+                border-radius: 0;
+            }
+
+            .resBoxFdeskDash .bookBt n {
+                background-color: var(--d e);
+                border-radius: 0;
+                padding: 20px 40px;
+            }
+
+        .green-btn {
+            background-color: var(--green);
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .yellow-btn {
+            background-color: var(--yellow);
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .resBoxHKDash {
+            background-color: var(--oil-green-unsat-opac);
+            height: 150px;
+        }
+
+            .resBoxHKDash img {
+                width: 100%;
+                filter: invert(1);
+            }
+
+            .resBoxHKDash .detBtn {
+                background-color: var(--light-oil-green);
+                color: var(--light);
+                border-radius: 0;
+            }
+
+        .resBoxFdeskDash .bookBtn {
+            background-color: var(--dark-blue);
+            border-radius: 0;
+            padding: 20px 40px;
+        }
+    </style>
 <body id="frontdesk-page">
     <div class="overlay-blue"></div>
     <aside class="d-flex flex-column">
@@ -13,16 +488,10 @@
         </div>
         <div>
             <div class="row d-flex justify-content-start mt-3">
-                <div class="col-2 ms-4">
-                    <img src="./Media/user.png" class="img-fluid">
-                </div>
                 <div class="col-5">
                     <div class="row ms-1" style="font-size: 1.4em;">
-                        John Doe
                     </div>
                     <div class="row">
-                        <img src="./Media/redflag.webp" style="width: 39px;">
-                        2 Red flags
                     </div>
                 </div>
             </div>
@@ -32,19 +501,14 @@
                 <div class="text-light-green ms-3 mt-3">Manage Rooms:</div>
                 <div class="row">
                     <div class="d-flex w-100 justify-content-around pb-4 mt-3">
-
                         @*Add Room Button*@
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addroommodal">Add Room</button>
-
-
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add Room</button>
                         @*Delete Room Button*@
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteroommodal">Delete Room</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Delete Room</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </aside>
     <main class="container-fluid" style="padding: 0;">
         <div class="d-flex justify-content-end align-items-center">
@@ -68,243 +532,202 @@
                                             <label>State</label>
                                             <div class="d-flex flex-column">
                                                 <div>
-                                                    <input type="checkbox" class="form-check-input" id="filterSent" value="Sent">
-                                                    <span class="text-light mx-1">Sent</span>
-                                                    @*Sent Filter*@
-                                                    @*Requests*@
-                                                    @for (int i = 0; i < @Model.dt2.Rows.Count; i++)
-                                                    {
-                                                        <div class="resBoxFdeskDash row mx-1 my-4 px-3">
-                                                            <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                <span class="text-center m-auto bold text-light bigText my-0">@Model.dt2.Rows[i][0]</span>
-                                                            </div>
-                                                            <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                <a href="#" class="label redL my-1">@Model.dt2.Rows[i][1]</a>
-
-                                                                <!--View Details Modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                                                    View Details
-                                                                </button>
-
-                                                                <!-- Modal -->
-                                                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                                                                    <div class="modal-dialog">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h1 class="modal-title fs-5" id="exampleModalLabel1">Request Description</h1>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                @Model.dt2.Rows[i][2]
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                <button type="button" class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Three">Assign</button>
-                                                                <button type="button" class="green-btn my-1 w-100 text-center" asp-page-handler="Four">Mark as closed</button>
-                                                            </div>
-                                                            <div class="col-2 d-flex flex-column justify-content-center">
-                                                                <div class="row d-flex justify-content-center">
-                                                                    <div class="col-8">
-                                                                        <img src="./Media/bed.webp" alt="Bed">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-
+                                                    <input type="checkbox" id="checkboxAll"> ALL
+                                                    <br />
+                                                    <input type="checkbox" id="checkboxA"> Sent
+                                                    <br />
+                                                    <input type="checkbox" id="checkboxB"> Started
+                                                    <br />
+                                                    <input type="checkbox" id="checkboxC"> Closed
+                                                    <hr />
                                                 </div>
-                                                <div>
-                                                </div>
-                                                <input type="checkbox" class="form-check-input" id="filterStarted" value="Started">
-                                                <span class="text-light mx-1">Started</span>
-                                                <div class="content" id="contentSent">
-                                                    @*Started Filter*@
-                                                    @*Requests*@
-                                                    @for (int i = 0; i < @Model.dt3.Rows.Count; i++)
-                                                    {
-                                                        <div class="resBoxFdeskDash row mx-1 my-4 px-3">
-                                                            <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                <span class="text-center m-auto bold text-light bigText my-0">@Model.dt3.Rows[i][0]</span>
-                                                            </div>
-                                                            <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                <a href="#" class="label redL my-1">@Model.dt3.Rows[i][1]</a>
-
-                                                                <!--View Details Modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                                                    View Details
-                                                                </button>
-
-                                                                <!-- Modal -->
-                                                                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                                                                    <div class="modal-dialog">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h1 class="modal-title fs-5" id="exampleModalLabel2">Request Description</h1>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                @Model.dt3.Rows[i][2]
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                <button type="button" class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Three">Assign</button>
-                                                                <button type="button" class="green-btn my-1 w-100 text-center" asp-page-handler="Four">Mark as closed</button>
-                                                            </div>
-                                                            <div class="col-2 d-flex flex-column justify-content-center">
-                                                                <div class="row d-flex justify-content-center">
-                                                                    <div class="col-8">
-                                                                        <img src="./Media/bed.webp" alt="Bed">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-
-                                                </div>
-                                                <div>
-                                                </div>
-                                                <div>
-                                                </div>
-
-                                                <input type="checkbox" class="form-check-input" id="filterClosed" value="Closed">
-                                                <span class="text-light mx-1">Closed</span>
-                                                <div class="content" id="contentSent">
-                                                    <div class="content" id="contentSent">
-                                                        @*Closed Filter*@
-
-                                                        @for (int i = 0; i < @Model.dt4.Rows.Count; i++)
-                                                        {
-                                                            <div class="resBoxFdeskDash row mx-1 my-4 px-3">
-                                                                <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                    <span class="text-center m-auto bold text-light bigText my-0">@Model.dt4.Rows[i][0]</span>
-                                                                </div>
-                                                                <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                    <a href="#" class="label redL my-1">@Model.dt4.Rows[i][1]</a>
-
-                                                                    <!--View Details Modal -->
-                                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                                                        View Details
-                                                                    </button>
-
-                                                                    <!-- Modal -->
-                                                                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel3">Request Description</h1>
-                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    @Model.dt4.Rows[i][2]
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col d-flex flex-column justify-content-center align-items-center">
-                                                                    <button type="button" class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Three">Assign</button>
-                                                                    <button type="button" class="green-btn my-1 w-100 text-center" asp-page-handler="Four">Mark as closed</button>
-                                                                </div>
-                                                                <div class="col-2 d-flex flex-column justify-content-center">
-                                                                    <div class="row d-flex justify-content-center">
-                                                                        <div class="col-8">
-                                                                            <img src="./Media/bed.webp" alt="Bed">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        }
-
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                    <div>
-                                                    </div>
-                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col mt-5 pt-3">
 
-                    </div>
+                            <script>
+                                function updateVisibility() {
+                                    document.getElementById('all').style.display = document.getElementById('checkboxAll').checked ? 'block' : 'none';
+                                    document.getElementById('a').style.display = document.getElementById('checkboxA').checked ? 'block' : 'none';
+                                    document.getElementById('b').style.display = document.getElementById('checkboxB').checked ? 'block' : 'none';
+                                    document.getElementById('c').style.display = document.getElementById('checkboxC').checked ? 'block' : 'none';
+                                }
+                                document.getElementById('checkboxAll').addEventListener('change', updateVisibility);
+                                document.getElementById('checkboxA').addEventListener('change', updateVisibility);
+                                document.getElementById('checkboxB').addEventListener('change', updateVisibility);
+                                document.getElementById('checkboxC').addEventListener('change', updateVisibility);
+                            </script>
 
-
-                    <div class="col mt-5 pt-3">
-                        <div class="row mx-1 my-4 px-3" style="width: 100%;">
-                            <div class="col-2 d-flex flex-column justify-content-center">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-8">
-                                        <img src="./Media/bed.webp">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            @*Requests*@
-                            @for (int i = 0; i < @Model.dt1.Rows.Count; i++)
-                            {
-                                <div class="resBoxFdeskDash row mx-1 my-4 px-3">
-                                    <div class="col d-flex flex-column justify-content-center align-items-center">
-                                        <span class="text-center m-auto bold text-light bigText my-0">@Model.dt1.Rows[i][0]</span>
-                                    </div>
-                                    <div class="col d-flex flex-column justify-content-center align-items-center">
-                                        <a href="#" class="label redL my-1">@Model.dt1.Rows[i][1]</a>
-
-                                        <!--View Details Modal -->
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                            View Details
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel4">Request Description</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        @Model.dt1.Rows[i][2]
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            @*Request Page*@
+                            @*All Filter*@
+                            <div id="all" style="display: none;">
+                                @for (int i = 0; i < @Model.dt1.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt1.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt1.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal4@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel4@(i)">Request Details</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @Model.dt1.Rows[i][2]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col d-flex flex-column justify-content-center align-items-center">
-                                        <button type="button" class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Three">Assign</button>
-                                        <button type="button" class="green-btn my-1 w-100 text-center" asp-page-handler="Four">Mark as closed</button>
-                                    </div>
-                                    <div class="col-2 d-flex flex-column justify-content-center">
-                                        <div class="row d-flex justify-content-center">
-                                            <div class="col-8">
-                                                <img src="./Media/bed.webp" alt="Bed">
-                                            </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Four">Assign</a>
+                                            <a class="green-btn my-1 w-100 text-center" asp-page-handler="Five">Mark as closed</a>
                                         </div>
                                     </div>
-                                </div>
-                            }
-
+                                }
+                            </div>
+                            @*Sent Filter*@
+                            <div id="a" style="display: none;">
+                                @for (int i = 0; i < @Model.dt3.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt3.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt3.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal5@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel5@(i)">Request Details</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @Model.dt3.Rows[i][2]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Four">Assign</a>
+                                            <a class="green-btn my-1 w-100 text-center" asp-page-handler="Five">Mark as closed</a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @*Started Filter*@
+                            <div id="b" style="display: none;">
+                                @for (int i = 0; i < @Model.dt4.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt4.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt4.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal5@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel5@(i)">Request Details</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @Model.dt4.Rows[i][2]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Four">Assign</a>
+                                            <a class="green-btn my-1 w-100 text-center" asp-page-handler="Five">Mark as closed</a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @*Closed Filter*@
+                            <div id="c" style="display: none;">
+                                @for (int i = 0; i < @Model.dt5.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt5.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt5.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal6@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel6@(i)">Request Details</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @Model.dt5.Rows[i][2]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Four">Assign</a>
+                                            <a class="green-btn my-1 w-100 text-center" asp-page-handler="Five">Mark as closed</a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
                 </section>
                 <section class="container pt-1 my-5" id="Feedbacks">
                     <div class="row mt-5 pt-5">
@@ -318,12 +741,12 @@
                                             <label>State</label>
                                             <div class="d-flex flex-column">
                                                 <div>
-                                                    <input type="checkbox" class="form-check-input">
-                                                    <span class="text-light mx-1">Acton taken</span>
-                                                </div>
-                                                <div>
-                                                    <input type="checkbox" class="form-check-input">
-                                                    <span class="text-light mx-1">Action not taken</span>
+                                                    <input type="checkbox" id="checkboxAllActions"> ALL
+                                                    <br />
+                                                    <input type="checkbox" id="checkboxActionTaken"> Action Taken
+                                                    <br />
+                                                    <input type="checkbox" id="checkboxActionNotTaken"> Action Not Taken
+                                                    <hr />
                                                 </div>
                                             </div>
                                         </form>
@@ -332,187 +755,285 @@
                             </div>
                         </div>
                         <div class="col mt-5 pt-3">
-                            <div class=" row mx-1 my-4 px-3" style="width: 100%;">
-                                <div class="col-2 d-flex flex-column justify-content-center">
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-8">
-                                            <img src="./Media/bed.webp">
-                                        </div>
-                                    </div>
-                                </div>
-                                @*Feedbacks*@
-                                @for (int i = 0; i < @Model.dt5.Rows.Count; i++)
+
+
+                            <script>
+                                function updateVisibility() {
+                                    document.getElementById('actions').style.display = document.getElementById('checkboxAllActions').checked ? 'block' : 'none';
+                                    document.getElementById('taken').style.display = document.getElementById('checkboxActionTaken').checked ? 'block' : 'none';
+                                    document.getElementById('nottaken').style.display = document.getElementById('checkboxActionNotTaken').checked ? 'block' : 'none';
+                                }
+                                document.getElementById('checkboxAllActions').addEventListener('change', updateVisibility);
+                                document.getElementById('checkboxActionTaken').addEventListener('change', updateVisibility);
+                                document.getElementById('checkboxActionNotTaken').addEventListener('change', updateVisibility);
+                            </script>
+                            @*Feedbacks*@
+                            @*All Filter*@
+                            <div id="actions" style="display: none;">
+                                @for (int i = 0; i < @Model.dt2.Rows.Count; i++)
                                 {
-                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3">
-                                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt5.Rows[i][0]</span>
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
                                         </div>
                                         <div class="col d-flex flex-column justify-content-center align-items-center">
-                                            <a href="#" class="label redL my-1">@Model.dt5.Rows[i][1]</a>
-
-                                            <!--View Details Modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                                                View Details
-                                            </button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt2.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt2.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal7@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel5">Feedback Description</h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel7@(i)">Feedback Details</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            @Model.dt5.Rows[i][2]
+                                                            @Model.dt2.Rows[i][2]
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save changes</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col d-flex flex-column justify-content-center align-items-center">
-                                            <button type="button" class="light-blue-btn my-1 w-100 text-center" asp-page-handler="Five">Add Action</button>
-                                            <button type="button" class="green-btn my-1 w-100 text-center" asp-page-handler="Six">Mark as Action Taken</button>
-                                        </div>
-                                        <div class="col-2 d-flex flex-column justify-content-center">
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-8">
-                                                    <img src="./Media/bed.webp" alt="Bed">
-                                                </div>
-                                            </div>
+                                            @*Add Action Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">Add Action</button>
+                                            <a class="green-btn my-1 w-100 text-center">Mark as action taken</a>
                                         </div>
                                     </div>
                                 }
-                                <div class="col d-flex flex-column justify-content-center align-items-center">
-                                    <span class="text-center m-auto bold text-light bigText my-0">506</span>
-                                </div>
-                                <div class="col d-flex flex-column justify-content-center align-items-center">
-                                    <a href="#" class="label redL my-1">Action not taken</a>
-                                    <a href="#" class="btn detBtn my-1">View details</a>
-                                </div>
-                                <div class="col d-flex flex-column justify-content-center align-items-center">
-                                    <a href="#" class="light-blue-btn my-1 w-100 text-center">Add acion</a>
-                                    <a href="#" class="green-btn my-1 w-100 text-center">Mark as action taken</a>
-                                </div>
                             </div>
-                            <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
-                                <div class="col-2 d-flex flex-column justify-content-center">
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-8">
-                                            <img src="./Media/bed.webp">
+                            @*Action Taken Filter*@
+                            <div id="taken" style="display: none;">
+                                @for (int i = 0; i < @Model.dt6.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt6.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt6.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal8@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel8@(i)">Feedback Details</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @Model.dt6.Rows[i][2]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            @*Add Action Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">Add Action</button>
+                                            <a class="green-btn my-1 w-100 text-center">Mark as action taken</a>
                                         </div>
                                     </div>
-                                </div>
+                                }
                             </div>
-                        </div>
-                    </div>
+                            @*Action Not Taken Filter*@
+                            <div id="nottaken" style="display: none;">
+                                @for (int i = 0; i < @Model.dt7.Rows.Count; i++)
+                                {
+                                    <div class="resBoxFdeskDash row mx-1 my-4 px-3" style="width: 100%;">
+                                        <div class="col-2 d-flex flex-column justify-content-center">
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <span class="text-center m-auto bold text-light bigText my-0">@Model.dt7.Rows[i][0]</span>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            <a class="label redL my-1">@Model.dt7.Rows[i][1]</a>
+                                            @*View Details Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal9@(i)">View Details</button>
+                                            @*View Details*@
+                                            <div class="modal fade" id="exampleModal9@(i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel9@(i)">Feedback Details</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @Model.dt7.Rows[i][2]
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column justify-content-center align-items-center">
+                                            @*Add Action Button*@
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">Add Action</button>
+                                            <a class="green-btn my-1 w-100 text-center">Mark as action taken</a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
                 </section>
             </div>
-            <script src="./Bootstrap/bootstrap.bundle.min.js"></script>
-            <script src="./script.js"></script>
         </div>
     </main>
+    <script src="./Bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 
-
 @*Add Room Button*@
-<div class="modal fade" id="addroommodal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel1">Adding Room</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <form method="post">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label asp-for="resID" class="col-form-label">Reservation ID:</label>
-                        <input type="text" class="form-control" asp-for="resID">
+                        <label class="col-form-label">Reservation ID:</label>
+                        <input type="text" asp-for="@Model.Reservation_Id">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="floorNum" class="col-form-label">Floor Number:</label>
-                        <textarea class="form-control" asp-for="floorNum"></textarea>
+                        <label class="col-form-label">Floor Number:</label>
+                        <input type="text" asp-for="@Model.Floor_Num">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="roomNum" class="col-form-label">Room Number:</label>
-                        <input type="text" class="form-control" asp-for="roomNum">
+                        <label class="col-form-label">Room Number:</label>
+                        <input type="text" asp-for="@Model.Room_Num">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="state" class="col-form-label">State:</label>
-                        <input type="text" class="form-control" asp-for="state">
+                        <label class="col-form-label">State:</label>
+                        <input type="text" asp-for="@Model.Statte">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="cost" class="col-form-label">Cost:</label>
-                        <textarea class="form-control" asp-for="cost"></textarea>
+                        <label class="col-form-label">Cost:</label>
+                        <input type="text" asp-for="@Model.Cost">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="capacity" class="col-form-label">Capacity:</label>
-                        <input type="text" class="form-control" asp-for="capacity">
+                        <label class="col-form-label">Capacity:</label>
+                        <input type="text" asp-for="@Model.Capacity_Details">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="type" class="col-form-label">Type:</label>
-                        <textarea class="form-control" asp-for="type"></textarea>
+                        <label class="col-form-label">Type:</label>
+                        <input type="text" asp-for="@Model.Type_Details">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="description" class="col-form-label">Descrition:</label>
-                        <input type="text" class="form-control" asp-for="description">
+                        <label class="col-form-label">Descrition:</label>
+                        <input type="text" asp-for="@Model.Descriptionn">
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="properties" class="col-form-label">Properties:</label>
-                        <textarea class="form-control" asp-for="properties"></textarea>
+                        <label class="col-form-label">Properties:</label>
+                        <input type="text" asp-for="@Model.Properties">
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" id="saveRoomButton" class="btn btn-primary" asp-page-handler="One">Save Room</button>
-                        @*<button type="button" class="btn btn-primary">save</button>*@
-                        <button type="button" id="Close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="saveRoomButton" class="btn btn-primary" asp-page-handler="One">Save Room</button>
+                    <button type="button" id="Close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
 
 
-
 @*Delete Room Button*@
-<div class="modal fade" id="deleteroommodal" tabindex="-1" aria-labelledby="exampleModalLabel7" aria-hidden="true">
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel7">Deleting Room</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel2">Adding Room</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="deleteRoomForm">
+            <form method="post">
+                <div class="modal-body">
                     <div class="mb-3">
-                        <label for="roomNum" class="col-form-label">Room Num:</label>
-                        <input type="text" class="form-control" id="roomNum">
+                        <label class="col-form-label">Floor Number:</label>
+                        <input type="text" asp-for="@Model.ffloorNum">
                     </div>
+
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">floorNum:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label class="col-form-label">Room Number:</label>
+                        <input type="text" asp-for="@Model.rroomNum">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" id="deleteRoomButton" class="btn btn-primary" method="post" asp-page-handler="Two">Delete Room</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="deleteRoomButton" class="btn btn-primary" asp-page-handler="Two">Delete Room</button>
+                    <button type="button" id="Close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+@*Add Action Button*@
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel3">Adding Action</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="col-form-label">Action Description:</label>
+                        <input type="text" asp-for="@Model.Action_Description">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Action Date:</label>
+                        <input type="text" asp-for="@Model.Action_Date">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Housekeeping ID:</label>
+                        <input type="text" asp-for="@Model.Housekeeping_ID">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Feedback Id:</label>
+                        <input type="text" asp-for="@Model.FeedbackId">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="AddActionButton" class="btn btn-primary" asp-page-handler="Three">Add Action</button>
+                    <button type="button" id="Close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="all" style="display: none;">Data for ALL</div>
+<div id="sent" style="display: none;">Data for A</div>
+<div id="started" style="display: none;">Data for B</div>
+<div id="closed" style="display: none;">Data for C</div>
